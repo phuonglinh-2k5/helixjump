@@ -1456,7 +1456,6 @@ MonoBehaviour:
   fadeHighlight: 1
   arrowLeft: {fileID: 1102342054}
   arrowRight: {fileID: 1361318719}
-  arrowOffsetX: 200
   arrowSpeed: 5
 --- !u!4 &658479102
 Transform:
@@ -2408,7 +2407,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1127596474}
+  m_Father: {fileID: 2001872160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2553,8 +2552,6 @@ RectTransform:
   - {fileID: 1923006016}
   - {fileID: 169812764}
   - {fileID: 469162220}
-  - {fileID: 1102342054}
-  - {fileID: 1361318719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2930,7 +2927,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1127596474}
+  m_Father: {fileID: 2001872160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -4211,6 +4208,8 @@ RectTransform:
   - {fileID: 2062167092}
   - {fileID: 1605139731}
   - {fileID: 48291586}
+  - {fileID: 1102342054}
+  - {fileID: 1361318719}
   m_Father: {fileID: 1127596474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4408,7 +4407,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1127596474}
+    m_TransformParent: {fileID: 2001872160}
     m_Modifications:
     - target: {fileID: 2809663727712876299, guid: f3c0a3be1d3d17f48ad476da5718ad14,
         type: 3}
@@ -4526,7 +4525,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1127596474}
+    m_TransformParent: {fileID: 2001872160}
     m_Modifications:
     - target: {fileID: 1278313082808154209, guid: a1ae7185becfea048a020836f50244c4,
         type: 3}

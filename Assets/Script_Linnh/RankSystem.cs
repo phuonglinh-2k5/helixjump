@@ -5,7 +5,7 @@ public class RankSystem : MonoBehaviour
     [System.Serializable]
     public class RankData
     {
-        public RectTransform root;     // KHỐI RANK (PHẢI là RectTransform)
+        public RectTransform root;
         public GameObject glowCup;
         public GameObject glowChest;
     }
@@ -31,7 +31,6 @@ public class RankSystem : MonoBehaviour
     public RectTransform arrowLeft;
     public RectTransform arrowRight;
 
-    public float arrowOffsetX = 200f;
     public float arrowSpeed = 8f;
 
     void Start()
@@ -41,7 +40,7 @@ public class RankSystem : MonoBehaviour
 
     void Update()
     {
-        UpdateAll(); // để arrow chạy mượt
+        UpdateAll();
     }
 
     public void AddScore(int amount)
@@ -80,24 +79,25 @@ public class RankSystem : MonoBehaviour
 
         if (rank == index)
         {
-            // 👉 SCALE + FADE
+            // SCALE
             data.root.localScale = Vector3.Lerp(
                 data.root.localScale,
                 Vector3.one * scaleHighlight,
                 Time.deltaTime * 8f
             );
 
+            // FADE
             cg.alpha = Mathf.Lerp(
                 cg.alpha,
                 fadeHighlight,
                 Time.deltaTime * 8f
             );
 
-            // 👉 GLOW
+            // GLOW
             if (data.glowCup) data.glowCup.SetActive(true);
             if (data.glowChest) data.glowChest.SetActive(true);
 
-            // 👉 MOVE ARROW (FIX CHUẨN UI)
+            // 👉 MOVE ARROW (FIX CHUẨN)
             MoveArrow(data.root);
         }
         else
@@ -121,28 +121,29 @@ public class RankSystem : MonoBehaviour
 
     void MoveArrow(RectTransform target)
     {
-        Vector2 pos = target.anchoredPosition;
+        if (arrowLeft == null || arrowRight == null) return;
 
-        if (arrowLeft != null)
-        {
-            Vector2 targetLeft = pos + new Vector2(-arrowOffsetX, 0);
+        // 👉 LẤY VỊ TRÍ Y THẬT (WORLD)
+        float targetY = target.position.y;
 
-            arrowLeft.anchoredPosition = Vector2.Lerp(
-                arrowLeft.anchoredPosition,
-                targetLeft,
-                Time.deltaTime * arrowSpeed
-            );
-        }
+        // 👉 LEFT
+        Vector3 leftPos = arrowLeft.position;
+        leftPos.y = targetY;
 
-        if (arrowRight != null)
-        {
-            Vector2 targetRight = pos + new Vector2(arrowOffsetX, 0);
+        arrowLeft.position = Vector3.Lerp(
+            arrowLeft.position,
+            leftPos,
+            Time.deltaTime * arrowSpeed
+        );
 
-            arrowRight.anchoredPosition = Vector2.Lerp(
-                arrowRight.anchoredPosition,
-                targetRight,
-                Time.deltaTime * arrowSpeed
-            );
-        }
+        // 👉 RIGHT
+        Vector3 rightPos = arrowRight.position;
+        rightPos.y = targetY;
+
+        arrowRight.position = Vector3.Lerp(
+            arrowRight.position,
+            rightPos,
+            Time.deltaTime * arrowSpeed
+        );
     }
 }
